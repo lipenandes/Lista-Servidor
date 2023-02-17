@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Convidados na mesa</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  {% if mesa_value %}
+    <div class="result">{{ mesa_value|safe }}</div>
+    <form action="/busca" method="GET">
+      <input type="submit" value="Nova busca">
+    </form>
+  {% endif %}
+</body>
+</html>
