@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Procurar valor na planilha</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <form action="/busca" method="POST">
@@ -10,7 +11,7 @@
     <input type="submit" value="Procurar">
 </form>
 {% if message %}
-    <div>{{ message|safe }}</div>
+    <div class="result">{{ message|safe }}</div>
     <form action="/busca" method="GET">
         <input type="submit" value="Nova busca">
     </form>
