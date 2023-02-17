@@ -5,17 +5,30 @@
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-<form action="/busca" method="POST">
+  <form action="/busca" method="POST">
     <label for="valor">Digite o nome do convidado:</label>
     <input type="text" id="valor" name="search_term">
     <input type="submit" value="Procurar">
-</form>
-{% if message %}
+  </form>
+  {% if message %}
     <div class="result">{{ message|safe }}</div>
+    {% if mesa_value %}
+      <div class="result">{{ mesa_value|safe }}</div>
+    {% endif %}
     <form action="/busca" method="GET">
-        <input type="submit" value="Nova busca">
+      <input type="submit" value="Nova busca">
     </form>
-{% endif %}
+  {% endif %}
+<script>
+  const tableButtons = document.querySelectorAll('.table-button');
+  tableButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const mesa = button.value;
+      const url = `/mesa/${mesa}`;
+      window.location.href = url;
+    });
+  });
+</script>
+
 </body>
 </html>
-
