@@ -8,6 +8,13 @@
     <label for="valor">Valor:</label>
     <input type="text" id="valor" name="search_term">
     <input type="submit" value="Procurar">
-  </form>
+</form>
+{% if message %}
+    <div>{{ message|safe }}</div>
+    <form action="/busca" method="GET">
+        <input type="submit" value="Nova busca">
+    </form>
+{% endif %}
 </body>
 </html>
+
