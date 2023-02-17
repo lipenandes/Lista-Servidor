@@ -1,0 +1,32 @@
+<!-- table.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha tabela</title>
+</head>
+<body>
+    <form method="POST" action="{{ url_for('search') }}">
+        <label for="cell">Digite a célula a ser pesquisada:</label>
+        <input type="text" id="cell" name="cell">
+        <button type="submit">Pesquisar</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                {% for col in df.columns %}
+                <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in df.values %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

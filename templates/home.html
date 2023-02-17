@@ -1,0 +1,29 @@
+<!-- home.html -->
+<!doctype html>
+<html>
+  <head>
+    <title>Localizar Célula</title>
+  </head>
+  <body>
+    <h1>Localizar Célula</h1>
+    <form method="POST" action="{{ url_for('result') }}">
+      <label for="sheet_name">Nome da Planilha:</label>
+      <input type="text" id="sheet_name" name="sheet_name"><br>
+      <label for="cell">Célula:</label>
+      <input type="text" id="cell" name="cell"><br>
+      <input type="submit" value="Localizar">
+    </form>
+  </body>
+</html>
+
+<!-- result.html -->
+<!doctype html>
+<html>
+  <head>
+    <title>Resultado</title>
+  </head>
+  <body>
+    <h1>Resultado</h1>
+    <p>O valor da célula {{ result.name }} é {{ result.values[0] }}</p>
+  </body>
+</html>
