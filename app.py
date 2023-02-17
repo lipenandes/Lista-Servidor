@@ -27,9 +27,10 @@ def busca():
         else:
             message = f'O convidado "{search_term}" não foi encontrado'
 
-        return message
+        return render_template("Busca.html", message=message)
     else:
         return render_template("Busca.html")
+
 
 
 
@@ -38,3 +39,4 @@ def busca():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
